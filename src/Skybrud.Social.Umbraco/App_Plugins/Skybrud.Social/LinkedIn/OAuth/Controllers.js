@@ -21,7 +21,7 @@
         url += "&contentTypeAlias=" + state.contentTypeAlias;
         url += "&propertyAlias=" + $scope.model.alias;
 
-        window.open(url, 'LinkedIn OAuth', 'scrollbars=no,resizable=yes,menubar=no,width=800,height=600');
+        window.open(url, 'LinkedIn OAuth', 'scrollbars=no,resizable=yes,menubar=no,width=480,height=720');
     };
 
     $scope.clear = function () {
@@ -64,11 +64,24 @@ angular.module("umbraco").controller("Skybrud.Social.LinkedIn.OAuth.PreValues.Co
         $scope.model.value = {
             appid: '',
             appsecret: '',
-            redirecturi: ''
+            redirecturi: '',
+            permissions: []
         };
     }
 
+    $scope.allPermissions = ["r_basicprofile", "r_emailaddress", "rw_company_admin", "w_share"];//TODO: remove all elements after UI loads and then rebuild array only with current checked permissions
     $scope.suggestedRedirectUri = window.location.origin + '/App_Plugins/Skybrud.Social/Dialogs/LinkedInOAuth.aspx';
 
     assetsService.loadCss("/App_Plugins/Skybrud.Social/Social.css");
+
+    $scope.toggleSelection = function toggleSelection(permName) {
+        var idx = $scope.model.value.permissions.indexOf(permName);
+
+        if (idx > -1) {// is currently selected
+            $scope.model.value.permissions.splice(idx, 1);
+        }
+        else {// is newly selected
+            $scope.model.value.permissions.push(permName);
+        }
+    };
 }]);

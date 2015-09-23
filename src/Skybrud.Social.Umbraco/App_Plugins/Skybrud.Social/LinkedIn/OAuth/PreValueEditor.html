@@ -10,10 +10,6 @@
         is saved along with information about the user. With the LinkedIn API, access tokens will
         expire after roughly two months.<br />
         <br />
-        <!--<strong>Notice:</strong> When a user is redirected to the Facebook login dialog, the scope
-        (permissions of the app) is specified. It is currently not possible to specify a scope, but
-        this will be possible in a future version of this package. The current scope sent to the
-        login dialog is: <samp>read_stream user_status user_about_me user_photos</samp>.-->
     </small>
 
     <div class="option">
@@ -34,6 +30,22 @@
             </div>
             <input type="text" ng-model="model.value.appsecret" />
         </label>
+    </div>
+
+    <div class="option">
+        <label>
+            <div>
+                <span>App Permissions</span>
+                <small>LinkedIn permissions that will be asked in your app</small>
+            </div>
+        </label>
+        <div style="clear: both;"></div>
+        <div style="display:block; float: left; margin-right: 10px;">
+            <label style="display:inline" ng-repeat="permName in allPermissions">
+                <input type="checkbox" name="model.value.permissions[]" value="{{permName}}"
+                    ng-checked="model.value.permissions.indexOf(permName) > -1" ng-click="toggleSelection(permName)"> {{permName}}
+            </label>
+        </div>
     </div>
 
     <div class="option">
