@@ -40,7 +40,7 @@
             </div>
         </label>
         <div style="clear: both;"></div>
-        <div style="display:block; float: left; margin-right: 10px;">
+        <div style="display:block; margin-right: 10px;">
             <label style="display:inline" ng-repeat="permName in allPermissions">
                 <input type="checkbox" name="model.value.permissions[]" value="{{permName}}"
                     ng-checked="model.value.permissions.indexOf(permName) > -1" ng-click="toggleSelection(permName)"> {{permName}}
