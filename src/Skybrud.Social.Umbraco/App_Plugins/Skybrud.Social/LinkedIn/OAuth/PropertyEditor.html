@@ -1,0 +1,37 @@
+﻿<div ng-controller="Skybrud.Social.LinkedIn.OAuth.Controller">
+
+    <div ng-show="model.value">
+        <div style="float: left; margin-right: 10px;">
+            <img src="{{model.value.picture_url}}" width="50" height="50" alt="" />
+        </div>
+        <div style="float: left; margin-right: 10px;">
+            <div style="margin-bottom: 5px;">
+                <strong>{{model.value.name}}</strong> <span style="font-size: 12px;">(ID: {{model.value.id}})</span>
+            </div>
+
+            <div style="margin-bottom: 5px;">
+                <span style="font-size: 12px;">Profile: <a href="{{model.value.public_profile_url}}" target="_blank">{{model.value.public_profile_url}}</a></span>
+            </div>
+                
+            <button ng-click="clear()" prevent-default="" style="float: left;">Clear</button>
+            
+            <div ng-show="expiresDays != NaN" style="float: left; line-height: 26px; padding-left: 5px; font-size: 12px;">
+                <div ng-show="expiresDays < 0">
+                    <span style="color: red;">Has expired</span>
+                </div>
+                <div ng-show="expiresDays < 7">
+                    <span style="color: red;">Expires in {{expiresDays}} days</span>
+                </div>
+                <div ng-show="expiresDays >= 7">
+                    Expires in {{expiresDays}} days
+                </div>
+            </div>
+        </div>
+        <div style="clear: both;"></div>
+    </div>
+
+    <div ng-show="!model.value">
+        <button ng-click="authorize()" prevent-default="" class="btn">Authorize</button>
+    </div>
+
+</div>

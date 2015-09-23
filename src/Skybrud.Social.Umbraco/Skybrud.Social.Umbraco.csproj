@@ -233,6 +233,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Plugins\Skybrud.Social\Dialogs\LinkedInOAuth.aspx.cs">
+      <DependentUpon>LinkedInOAuth.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Plugins\Skybrud.Social\Dialogs\LinkedInOAuth.aspx.designer.cs">
+      <DependentUpon>LinkedInOAuth.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Plugins\Skybrud.Social\Dialogs\FacebookOAuth.aspx.cs">
       <DependentUpon>FacebookOAuth.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -273,6 +280,9 @@
     <Compile Include="Instagram\PropertyEditors\OAuth\InstagramOAuthPreValueOptions.cs" />
     <Compile Include="Instagram\PropertyEditors\OAuth\InstagramOAuthPropertyEditor.cs" />
     <Compile Include="Instagram\PropertyEditors\OAuth\InstagramOAuthPropertyValueConverter.cs" />
+    <Compile Include="LinkedIn\PropertyEditors\OAuth\LinkedInOAuthData.cs" />
+    <Compile Include="LinkedIn\PropertyEditors\OAuth\LinkedInOAuthPreValueOptions.cs" />
+    <Compile Include="LinkedIn\PropertyEditors\OAuth\LinkedInOAuthPropertyEditor.cs" />
     <Compile Include="PackageHelpers.cs" />
     <Compile Include="PreValueHelpers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -284,6 +294,7 @@
     <Compile Include="WebApi\SkybrudJsonMediaTypeFormatter.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Plugins\Skybrud.Social\Dialogs\LinkedInOAuth.aspx" />
     <Content Include="App_Plugins\Skybrud.Social\Dialogs\FacebookOAuth.aspx" />
     <Content Include="App_Plugins\Skybrud.Social\Dialogs\GoogleOAuth.aspx" />
     <Content Include="App_Plugins\Skybrud.Social\Dialogs\InstagramOAuth.aspx" />
@@ -297,6 +308,9 @@
     <Content Include="App_Plugins\Skybrud.Social\Instagram\OAuth\Controllers.js" />
     <Content Include="App_Plugins\Skybrud.Social\Instagram\OAuth\PreValueEditor.html" />
     <Content Include="App_Plugins\Skybrud.Social\Instagram\OAuth\PropertyEditor.html" />
+    <Content Include="App_Plugins\Skybrud.Social\LinkedIn\OAuth\Controllers.js" />
+    <Content Include="App_Plugins\Skybrud.Social\LinkedIn\OAuth\PreValueEditor.html" />
+    <Content Include="App_Plugins\Skybrud.Social\LinkedIn\OAuth\PropertyEditor.html" />
     <Content Include="App_Plugins\Skybrud.Social\Social.css">
       <DependentUpon>Social.less</DependentUpon>
     </Content>
