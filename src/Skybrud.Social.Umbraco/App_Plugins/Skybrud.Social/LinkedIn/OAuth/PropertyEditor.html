@@ -12,6 +12,12 @@
             <div style="margin-bottom: 5px;">
                 <span style="font-size: 12px;">Profile: <a href="{{model.value.public_profile_url}}" target="_blank">{{model.value.public_profile_url}}</a></span>
             </div>
+            <div style="margin-bottom: 5px;">
+                <span style="font-size: 12px;">Company: 
+                    <a href="https://www.linkedin.com/company/{{model.value.company}}" target="_blank">https://www.linkedin.com/company/</a>
+                    <input type="text" value="{{model.value.company}}" ng-model="model.value.company" />
+                </span>
+            </div>
                 
             <button ng-click="clear()" prevent-default="" style="float: left;">Clear</button>
             
