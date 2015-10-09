@@ -52,6 +52,12 @@ namespace Skybrud.Social.Umbraco.LinkedIn.PropertyEditors.OAuth {
         public string PublicProfileUrl { get; set; }
 
         /// <summary>
+        /// Gets company alias
+        /// </summary>
+        [JsonProperty("company")]
+        public string Company { get; set; }
+
+        /// <summary>
         /// Gets whether the OAuth data is valid - that is whether the OAuth data has a valid
         /// access token and the expiration timestamp hasn't been passed. Calling this property
         /// will not check the validate the access token against the API.

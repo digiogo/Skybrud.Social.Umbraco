@@ -139,6 +139,7 @@ namespace Skybrud.Social.Umbraco.App_Plugins.Skybrud.Social.Dialogs {
                     Name = me.FirstName + " " + me.LastName,
                     PictureUrl = me.PictureUrl,
                     PublicProfileUrl = me.PublicProfileUrl,
+                    Company = null,
                     AccessToken = accessTokenResponse.AccessToken,
                     ExpiresAt = DateTime.Now.Add(accessTokenResponse.ExpiresIn)
                 };
