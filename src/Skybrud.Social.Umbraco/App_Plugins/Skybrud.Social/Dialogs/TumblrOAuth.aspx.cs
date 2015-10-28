@@ -131,15 +131,6 @@ namespace Skybrud.Social.Umbraco.App_Plugins.Skybrud.Social.Dialogs {
                 // Initialize the Tumblr service (no calls are made here)
                 TumblrService service = TumblrService.CreateFromOAuthClient(client);
 
-                //string body = "Test number #" + Guid.NewGuid().ToString();
-                string title = "Test number #" + Guid.NewGuid().ToString();
-                string[] tags = new string[] { "test", ".net" };
-                var postData = PostData.CreateText(title, title, tags);
-
-                //create the post: pass the name of the blog where to post to
-                var ret = await service.Client.CreatePostAsync("digiogo", postData);
-
-
                 //Get basic user info
                 var me = await service.Client.GetUserInfoAsync();
                 Content.Text += "<p>Hi <strong>" + me.Name + "</strong></p>";
