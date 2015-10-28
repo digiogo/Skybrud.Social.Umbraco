@@ -1,0 +1,48 @@
+﻿<div class="skybrudsocialprevalue" ng-controller="Skybrud.Social.Tumblr.OAuth.PreValues.Controller">
+
+    <small>
+        Tumblr uses <strong>OAuth 1.0a</strong> for authentication and communication. In order for
+        users to authenticate with the Tumblr API, you must specify the ID, secret and redirect
+        URI of your Tumblr app. You can create a new app at the following URL:
+        <strong>https://www.tumblr.com/oauth/apps</strong><br />
+        <br />
+        <strong>Notice:</strong> When a user authenticates with the Tumblr API, an access token
+        is saved along with information about the user. With the Tumblr API, access tokens will
+        NOT expire.<br />
+        <br />
+    </small>
+
+    <div class="option">
+        <label>
+            <div>
+                <span>App ID</span>
+                <small>The ID of the Tumblr app.</small>
+            </div>
+            <input type="text" ng-model="model.value.appid" />
+        </label>
+    </div>
+    
+    <div class="option">
+        <label>
+            <div>
+                <span>App Secret</span>
+                <small>The secret of the Tumblr app.</small>
+            </div>
+            <input type="text" ng-model="model.value.appsecret" />
+        </label>
+    </div>
+
+    <div class="option">
+        <label>
+            <div>
+                <span>Redirect URI</span>
+                <small>The redirect URI of the Tumblr app.</small>
+            </div>
+            <input type="text" ng-model="model.value.redirecturi" />
+        </label>
+        <div ng-show="model.value.redirecturi == ''" class="suggestion">
+            Will most likely be: {{suggestedRedirectUri}}
+        </div>
+    </div>
+
+</div>

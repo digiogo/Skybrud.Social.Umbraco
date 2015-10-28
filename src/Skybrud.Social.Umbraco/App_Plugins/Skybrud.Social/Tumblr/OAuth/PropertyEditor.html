@@ -1,0 +1,34 @@
+﻿<div ng-controller="Skybrud.Social.Tumblr.OAuth.Controller">
+
+    <div ng-show="model.value">
+        
+        <div style="float: left; margin-right: 10px;">
+            <div style="margin-bottom: 5px;">
+                <strong>{{model.value.name}}</strong> <span style="font-size: 12px;">(Blog Count: {{model.value.blogs.length}})</span>
+            </div>
+            <div style="margin-bottom: 5px;">
+                <button ng-click="clear()" prevent-default="" style="float: left;">Clear</button>
+            </div>
+            <div style="float: left; margin-right: 10px;" ng-show="blogs">
+                <h5>Available Blogs</h5>
+                <select name="blog-info" ng-model="selectedBlogInfo" ng-change="blogInfoSelected(selectedBlogInfo)" ng-options="bi.url for bi in blogs track by bi.name">
+                    <option value="">choose an blog...</option>
+                </select>
+            </div>
+        </div>
+        <div style="clear: both;"></div>
+        
+        <div style="float: left; margin-right: 10px;width:300px;" ng-show="selectedBlogInfo">
+            <hr />
+            <h5>Blog Page Selected</h5>
+            <img src="http://api.tumblr.com/v2/blog/{{selectedBlogInfo.name}}.tumblr.com/avatar" width="50" height="50" alt="" style="float:right"/>
+            <span><strong>Name:</strong> {{selectedBlogInfo.name}}</span><br />
+            <span><strong>Url:</strong> <a href="{{selectedBlogInfo.url}}" target="_blank">{{selectedBlogInfo.url}}</a></span>
+        </div>
+    </div>
+
+    <div ng-show="!model.value">
+        <button ng-click="authorize()" prevent-default="" class="btn">Authorize</button>
+    </div>
+
+</div>

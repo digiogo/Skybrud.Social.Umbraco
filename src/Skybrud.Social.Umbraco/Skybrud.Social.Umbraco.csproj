@@ -19,6 +19,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -66,6 +67,18 @@
     </Reference>
     <Reference Include="CookComputing.XmlRpcV2">
       <HintPath>..\packages\xmlrpcnet.2.5.0\lib\net20\CookComputing.XmlRpcV2.dll</HintPath>
+    </Reference>
+    <Reference Include="DontPanic.TumblrSharp, Version=1.0.0.6, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TumblrSharp.1.0.0.6\lib\net45\DontPanic.TumblrSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DontPanic.TumblrSharp.Client, Version=1.0.0.6, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TumblrSharp.1.0.0.6\lib\net45\DontPanic.TumblrSharp.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DontPanic.TumblrSharp.Net45, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TumblrSharp.1.0.0.6\lib\net45\DontPanic.TumblrSharp.Net45.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Examine, Version=0.1.57.2941, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -147,6 +160,7 @@
     <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.30506.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -237,6 +251,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Plugins\Skybrud.Social\Dialogs\TumblrOAuth.aspx.cs">
+      <DependentUpon>TumblrOAuth.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Plugins\Skybrud.Social\Dialogs\TumblrOAuth.aspx.designer.cs">
+      <DependentUpon>TumblrOAuth.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Plugins\Skybrud.Social\Dialogs\LinkedInOAuth.aspx.cs">
       <DependentUpon>LinkedInOAuth.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -284,6 +305,10 @@
     <Compile Include="Instagram\PropertyEditors\OAuth\InstagramOAuthPreValueOptions.cs" />
     <Compile Include="Instagram\PropertyEditors\OAuth\InstagramOAuthPropertyEditor.cs" />
     <Compile Include="Instagram\PropertyEditors\OAuth\InstagramOAuthPropertyValueConverter.cs" />
+    <Compile Include="Tumblr\TumblrWrapper.cs" />
+    <Compile Include="Tumblr\PropertyEditors\OAuth\TumblrOAuthData.cs" />
+    <Compile Include="Tumblr\PropertyEditors\OAuth\TumblrOAuthPreValueOptions.cs" />
+    <Compile Include="Tumblr\PropertyEditors\OAuth\TumblrOAuthPropertyEditor.cs" />
     <Compile Include="LinkedIn\PropertyEditors\OAuth\LinkedInOAuthData.cs" />
     <Compile Include="LinkedIn\PropertyEditors\OAuth\LinkedInOAuthPreValueOptions.cs" />
     <Compile Include="LinkedIn\PropertyEditors\OAuth\LinkedInOAuthPropertyEditor.cs" />
@@ -298,6 +323,7 @@
     <Compile Include="WebApi\SkybrudJsonMediaTypeFormatter.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Plugins\Skybrud.Social\Dialogs\TumblrOAuth.aspx" />
     <Content Include="App_Plugins\Skybrud.Social\Dialogs\LinkedInOAuth.aspx" />
     <Content Include="App_Plugins\Skybrud.Social\Dialogs\FacebookOAuth.aspx" />
     <Content Include="App_Plugins\Skybrud.Social\Dialogs\GoogleOAuth.aspx" />
@@ -312,6 +338,9 @@
     <Content Include="App_Plugins\Skybrud.Social\Instagram\OAuth\Controllers.js" />
     <Content Include="App_Plugins\Skybrud.Social\Instagram\OAuth\PreValueEditor.html" />
     <Content Include="App_Plugins\Skybrud.Social\Instagram\OAuth\PropertyEditor.html" />
+    <Content Include="App_Plugins\Skybrud.Social\Tumblr\OAuth\Controllers.js" />
+    <Content Include="App_Plugins\Skybrud.Social\Tumblr\OAuth\PreValueEditor.html" />
+    <Content Include="App_Plugins\Skybrud.Social\Tumblr\OAuth\PropertyEditor.html" />
     <Content Include="App_Plugins\Skybrud.Social\LinkedIn\OAuth\Controllers.js" />
     <Content Include="App_Plugins\Skybrud.Social\LinkedIn\OAuth\PreValueEditor.html" />
     <Content Include="App_Plugins\Skybrud.Social\LinkedIn\OAuth\PropertyEditor.html" />
@@ -328,6 +357,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Plugins\Skybrud.Social\Social.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="web.config" />
+    <None Include="web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
